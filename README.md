@@ -48,7 +48,7 @@ Projeto final do curso de React da [Origamid](https://www.origamid.com/), refeit
 3. Crie um arquivo `.env` na raiz do projeto com a URL da API:
 
    ```
-   VITE_API_URL_BASE=https://dogsapi.origamid.dev/json
+    API_URL_BASE=https://dogsapi.origamid.dev/json
    ```
 
 4. Inicie o servidor de desenvolvimento:

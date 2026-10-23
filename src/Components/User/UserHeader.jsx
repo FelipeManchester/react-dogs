@@ -1,5 +1,6 @@
 import UserHeaderNav from './UserHeaderNav';
 import { useLocation } from 'react-router-dom';
+import Head from '../../Helper/Head';
 
 const titles = {
   '/conta': 'Minha conta',
@@ -13,6 +14,7 @@ const UserHeader = () => {
   const title = titles[location.pathname];
   return (
     <header className='relative mb-8 mt-4 grid grid-cols-[1fr_auto] items-center'>
+      <Head title={title} />
       <h1 className='title'>{title}</h1>
       <UserHeaderNav />
     </header>

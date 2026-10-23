@@ -1,3 +1,4 @@
+import Head from '../../Helper/Head';
 import Error from '../../Helper/Error';
 import { Link } from 'react-router-dom';
 import Input from '../Forms/Input';
@@ -26,6 +27,7 @@ const LoginForm = () => {
 
   return (
     <section className='animate-anime-left'>
+      <Head title='Login' />
       <h1 className='title'>Login</h1>
       <form onSubmit={handleSubmit} className='mb-8'>
         <Input label='Usuário' type='text' name='username' {...username} />

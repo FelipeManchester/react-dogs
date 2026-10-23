@@ -1,3 +1,4 @@
+import Head from '../../Helper/Head';
 import Error from '../../Helper/Error';
 import useForm from '../../Hooks/useForm';
 import Button from '../Forms/Button';
@@ -37,6 +38,7 @@ const LoginCreate = () => {
   }
   return (
     <section className='animate-anime-left'>
+      <Head title='Crie sua conta' />
       <h1 className='title'>Cadastre-se</h1>
 
       <form onSubmit={handleSubmit}>

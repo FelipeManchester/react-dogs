@@ -1,3 +1,4 @@
+import Image from '../../Helper/Image';
 import { Link } from 'react-router-dom';
 import PhotoComments from './PhotoComments';
 import { useContext } from 'react';
@@ -8,17 +9,22 @@ import PhotoDelete from './PhotoDelete';
 const attributes =
   "*:before:relative *:before:top-0.5 *:before:mr-2 *:before:mt-1 *:before:inline-block *:before:h-5 *:before:w-0.5 *:before:bg-current *:before:content-['']";
 
-const PhotoContent = ({ data, closing }) => {
+const modalLayout =
+  'max-h-[calc(100vh-4rem)] scale-[0.8] grid-cols-[minmax(20rem,40rem)] grid-rows-[auto_1fr_auto] overflow-y-auto opacity-0 lg:h-[36rem] lg:max-h-none lg:grid-cols-[36rem_20rem] lg:overflow-hidden';
+// own page: one column, no open/close animation
+const singleLayout = 'grid-cols-1 gap-4';
+
+const PhotoContent = ({ data, closing, single = false }) => {
   const user = useContext(UserContext);
   const { photo, comments } = data;
   return (
     <div
-      className={`${closing ? 'animate-scaleDown' : 'animate-scaleUp'} mx-auto grid max-h-[calc(100vh-4rem)] scale-[0.8] grid-cols-[minmax(20rem,40rem)] grid-rows-[auto_1fr_auto] overflow-y-auto rounded-md bg-white opacity-0 lg:h-[36rem] lg:max-h-none lg:grid-cols-[36rem_20rem] lg:overflow-hidden`}
+      className={`mx-auto grid rounded-md bg-white ${single ? singleLayout : `${modalLayout} ${closing ? 'animate-scaleDown' : 'animate-scaleUp'}`}`}
     >
-      <div className='lg:row-span-3'>
-        <img src={photo.src} alt={photo.title} />
+      <div className={single ? 'overflow-hidden rounded-md' : 'lg:row-span-3'}>
+        <Image src={photo.src} alt={photo.title} />
       </div>
-      <div className='pl-4 pr-8 pt-8'>
+      <div className={single ? '' : 'pl-4 pr-8 pt-8'}>
         <div>
           <p className='mb-4 flex items-center justify-between opacity-50'>
             {user.data && user.data.username === photo.author ? (

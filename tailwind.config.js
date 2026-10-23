@@ -42,12 +42,17 @@ export default {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        skeleton: {
+          from: { backgroundPosition: '0 0' },
+          to: { backgroundPosition: '-200% 0' },
+        },
       },
       animation: {
         'anime-left': 'anime-left 0.3s ease-out forwards',
         scaleUp: 'scaleUp 0.3s forwards',
         scaleDown: 'scaleDown 0.3s forwards',
         latir: 'latir 0.6s infinite',
+        skeleton: 'skeleton 1.5s infinite linear',
       },
     },
   },

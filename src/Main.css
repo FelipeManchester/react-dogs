@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    color: #333;
+    padding-top: 4rem;
+  }
+
+  button,
+  input {
+    display: block;
+    font-size: 1rem;
+    @apply font-primary;
+    color: #333;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply min-w-32 rounded-md bg-brand px-5 py-3 text-center font-primary text-base text-brand-dark transition-shadow;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    @apply shadow-focus;
+  }
+
+  .btn:focus {
+    @apply outline-none;
+  }
+
+  .btn:disabled {
+    @apply cursor-wait opacity-50;
+  }
+
+  .title {
+    @apply relative z-10 my-4 font-secondary text-5xl;
+  }
+
+  .title::after {
+    @apply absolute bottom-1 left-1 -z-10 block h-6 w-6 rounded-md bg-brand content-[''];
+  }
+}

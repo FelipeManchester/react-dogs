@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL_BASE;
+const API_URL = import.meta.env.API_URL_BASE;
 
 export function TOKEN_POST(body) {
   return {
